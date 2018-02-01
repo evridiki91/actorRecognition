@@ -12,6 +12,11 @@
 		790322882015166500A801E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790322862015166500A801E9 /* Main.storyboard */; };
 		7903228A2015166500A801E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 790322892015166500A801E9 /* Assets.xcassets */; };
 		7903228D2015166500A801E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7903228B2015166500A801E9 /* LaunchScreen.storyboard */; };
+		793ACBC6201CED6800F39E86 /* my_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 793ACBC5201CED6800F39E86 /* my_model.mlmodel */; };
+		796A38872022971500C68F41 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A38862022971500C68F41 /* SqueezeNet.mlmodel */; };
+		796A38892022B1BE00C68F41 /* vggface.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A38882022B1BE00C68F41 /* vggface.mlmodel */; };
+		796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */; };
+		796A388F202360F900C68F41 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388E202360F900C68F41 /* MobileNet.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		790322892015166500A801E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7903228C2015166500A801E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7903228E2015166500A801E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		793ACBC5201CED6800F39E86 /* my_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = my_model.mlmodel; path = ../../../coremlConversion/my_model.mlmodel; sourceTree = "<group>"; };
+		796A38862022971500C68F41 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = SqueezeNet.mlmodel; path = ../../../../Downloads/SqueezeNet.mlmodel; sourceTree = "<group>"; };
+		796A38882022B1BE00C68F41 /* vggface.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = vggface.mlmodel; path = ../../../../Downloads/vgg_face_caffe/vggface.mlmodel; sourceTree = "<group>"; };
+		796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = VGG16Face.mlmodel; path = ../../../../Downloads/vgg_face_caffe/VGG16Face.mlmodel; sourceTree = "<group>"; };
+		796A388E202360F900C68F41 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = "../../../../Downloads/ClassifyingImagesWithVisionAndCoreML/Vision+ML Example/Model/MobileNet.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,11 @@
 				790322892015166500A801E9 /* Assets.xcassets */,
 				7903228B2015166500A801E9 /* LaunchScreen.storyboard */,
 				7903228E2015166500A801E9 /* Info.plist */,
+				793ACBC5201CED6800F39E86 /* my_model.mlmodel */,
+				796A38862022971500C68F41 /* SqueezeNet.mlmodel */,
+				796A388E202360F900C68F41 /* MobileNet.mlmodel */,
+				796A38882022B1BE00C68F41 /* vggface.mlmodel */,
+				796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */,
 			);
 			path = faceRecognition;
 			sourceTree = "<group>";
@@ -136,8 +151,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796A38892022B1BE00C68F41 /* vggface.mlmodel in Sources */,
 				790322852015166500A801E9 /* ViewController.swift in Sources */,
 				790322832015166500A801E9 /* AppDelegate.swift in Sources */,
+				793ACBC6201CED6800F39E86 /* my_model.mlmodel in Sources */,
+				796A388F202360F900C68F41 /* MobileNet.mlmodel in Sources */,
+				796A38872022971500C68F41 /* SqueezeNet.mlmodel in Sources */,
+				796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
