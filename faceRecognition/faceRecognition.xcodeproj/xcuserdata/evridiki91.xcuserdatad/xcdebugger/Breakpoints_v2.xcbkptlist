@@ -2,4 +2,84 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "faceRecognition/ViewController.swift"
+            timestampString = "539291862.374742"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "variable initialization expression of faceRecognition.ViewController.imagePicker : __ObjC.UIImagePickerController"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "539288277.19291"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.imagePicker.getter : __ObjC.UIImagePickerController"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "539288277.198382"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; faceRecognition.ViewController"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "539288277.200405"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;faceRecognition.ViewController&gt;"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "539288277.202944"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

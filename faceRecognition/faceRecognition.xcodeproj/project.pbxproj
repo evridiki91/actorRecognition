@@ -17,6 +17,10 @@
 		796A38892022B1BE00C68F41 /* vggface.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A38882022B1BE00C68F41 /* vggface.mlmodel */; };
 		796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */; };
 		796A388F202360F900C68F41 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388E202360F900C68F41 /* MobileNet.mlmodel */; };
+		796A38952024DA0C00C68F41 /* resnet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A38942024DA0C00C68F41 /* resnet.mlmodel */; };
+		796A38972024E29400C68F41 /* resnet2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A38962024E29300C68F41 /* resnet2.mlmodel */; };
+		796A389B2024ECBB00C68F41 /* resnet3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A389A2024ECBB00C68F41 /* resnet3.mlmodel */; };
+		796A389D2024F03C00C68F41 /* resnet4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A389C2024F03C00C68F41 /* resnet4.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		796A38882022B1BE00C68F41 /* vggface.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = vggface.mlmodel; path = ../../../../Downloads/vgg_face_caffe/vggface.mlmodel; sourceTree = "<group>"; };
 		796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = VGG16Face.mlmodel; path = ../../../../Downloads/vgg_face_caffe/VGG16Face.mlmodel; sourceTree = "<group>"; };
 		796A388E202360F900C68F41 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = "../../../../Downloads/ClassifyingImagesWithVisionAndCoreML/Vision+ML Example/Model/MobileNet.mlmodel"; sourceTree = "<group>"; };
+		796A38942024DA0C00C68F41 /* resnet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = resnet.mlmodel; path = ../../../coremlConversion/resnet.mlmodel; sourceTree = "<group>"; };
+		796A38962024E29300C68F41 /* resnet2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = resnet2.mlmodel; path = ../../../coremlConversion/resnet2.mlmodel; sourceTree = "<group>"; };
+		796A389A2024ECBB00C68F41 /* resnet3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = resnet3.mlmodel; path = ../../../coremlConversion/resnet3.mlmodel; sourceTree = "<group>"; };
+		796A389C2024F03C00C68F41 /* resnet4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = resnet4.mlmodel; path = ../../../coremlConversion/resnet4.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,10 @@
 				796A388E202360F900C68F41 /* MobileNet.mlmodel */,
 				796A38882022B1BE00C68F41 /* vggface.mlmodel */,
 				796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */,
+				796A38942024DA0C00C68F41 /* resnet.mlmodel */,
+				796A38962024E29300C68F41 /* resnet2.mlmodel */,
+				796A389A2024ECBB00C68F41 /* resnet3.mlmodel */,
+				796A389C2024F03C00C68F41 /* resnet4.mlmodel */,
 			);
 			path = faceRecognition;
 			sourceTree = "<group>";
@@ -153,11 +165,15 @@
 			files = (
 				796A38892022B1BE00C68F41 /* vggface.mlmodel in Sources */,
 				790322852015166500A801E9 /* ViewController.swift in Sources */,
+				796A38972024E29400C68F41 /* resnet2.mlmodel in Sources */,
 				790322832015166500A801E9 /* AppDelegate.swift in Sources */,
 				793ACBC6201CED6800F39E86 /* my_model.mlmodel in Sources */,
 				796A388F202360F900C68F41 /* MobileNet.mlmodel in Sources */,
 				796A38872022971500C68F41 /* SqueezeNet.mlmodel in Sources */,
+				796A389D2024F03C00C68F41 /* resnet4.mlmodel in Sources */,
 				796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */,
+				796A38952024DA0C00C68F41 /* resnet.mlmodel in Sources */,
+				796A389B2024ECBB00C68F41 /* resnet3.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

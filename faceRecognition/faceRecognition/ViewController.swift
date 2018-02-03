@@ -18,9 +18,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    var model: VGG16Face!
+    var model: resnet4!
     override func viewWillAppear(_ animated: Bool) {
-        model = VGG16Face()
+        model = resnet4()
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,11 +85,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
         imageView.image = newImage
         
-        guard let prediction = try? model.prediction(image:pixelBuffer!) else {
+        guard let prediction = try? model.prediction(data:pixelBuffer!) else {
             return
         }
-        
-        
         
         classifier.text = "I think this is \(prediction.classLabel)."
     }
