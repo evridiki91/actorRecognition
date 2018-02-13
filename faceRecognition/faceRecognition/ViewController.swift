@@ -11,18 +11,18 @@ import CoreML
 import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    var model: resnet4!
+    var model: model_ft!
     override func viewWillAppear(_ animated: Bool) {
-        model = resnet4()
+        model = model_ft()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var classifier: UILabel!
     
-   
+    
     
     let imagePicker = UIImagePickerController()
     
@@ -54,45 +54,56 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true)
         classifier.text = "Analyzing Image..."
-        guard let image = info["UIImagePickerControllerOriginalImage"] as? UIImage else {
+        guard let newImage = info["UIImagePickerControllerOriginalImage"] as? UIImage else {
             return
         }
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
         
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 224, height: 224), true, 2.0)
-        image.draw(in: CGRect(x: 0, y: 0, width: 224, height: 224))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
-        var pixelBuffer : CVPixelBuffer?
-        let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(newImage.size.width), Int(newImage.size.height), kCVPixelFormatType_32ARGB, attrs, &pixelBuffer)
-        guard (status == kCVReturnSuccess) else {
-            return
+        guard let visionModel = try? VNCoreMLModel(for: model.model) else {
+            fatalError("Error")
         }
         
-        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
-        let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
+        let request = VNCoreMLRequest(model: visionModel) { request, error in
+            if let observations = request.results as? [VNClassificationObservation] {
+                
+                // The observations appear to be sorted by confidence already, so we
+                // take the top 5 and map them to an array of (String, Double) tuples.
+                let top5 = observations.prefix(through: 4)
+                    .map { ($0.identifier, Double($0.confidence)) }
+                self.show(results: top5)
+            }
+        }
         
-        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-        let context = CGContext(data: pixelData, width: Int(newImage.size.width), height: Int(newImage.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) //3
+        request.imageCropAndScaleOption = .centerCrop
         
-        context?.translateBy(x: 0, y: newImage.size.height)
-        context?.scaleBy(x: 1.0, y: -1.0)
-        
-        UIGraphicsPushContext(context!)
-        newImage.draw(in: CGRect(x: 0, y: 0, width: newImage.size.width, height: newImage.size.height))
-        UIGraphicsPopContext()
-        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        let handler = VNImageRequestHandler(cgImage: newImage.cgImage!)
+        try? handler.perform([request])
+ 
         imageView.image = newImage
+
         
-        guard let prediction = try? model.prediction(data:pixelBuffer!) else {
-            return
+//        classifier.text = "I think this is \(prediction.classLabel)."
+//        print("This is \(prediction.classLabel) \n")
+//        print("and \(prediction.prob) \n")
+    }
+    typealias Prediction = (String, Double)
+    
+    func show(results: [Prediction]) {
+        var s: [String] = []
+        for (i, pred) in results.enumerated() {
+            s.append(String(format: "%d: %@ (%3.2f%%)", i + 1, pred.0, pred.1 * 100))
         }
-        
-        classifier.text = "I think this is \(prediction.classLabel)."
+        classifier.text = s.joined(separator: "\n\n")
     }
     
-
+    func top(_ k: Int, _ prob: [String: Double]) -> [Prediction] {
+        precondition(k <= prob.count)
+        
+        return Array(prob.map { x in (x.key, x.value) }
+            .sorted(by: { a, b -> Bool in a.1 > b.1 })
+            .prefix(through: k - 1))
+    }
     
 }
 
