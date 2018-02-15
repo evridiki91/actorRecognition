@@ -12,10 +12,22 @@ import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var effect:UIVisualEffect!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet var infoView: UIView!
+    @IBOutlet weak var BlurredView: UIVisualEffectView!
+    @IBOutlet weak var classifier: UILabel!
+    @IBOutlet weak var info: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        effect = BlurredView.effect
+        BlurredView.effect = nil
+        self.info.isHidden = true
     }
     
     var model: model_ft!
@@ -28,14 +40,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var classifier: UILabel!
-    
-    
-    
     let imagePicker = UIImagePickerController()
+   
+    func animationOn() {
+        self.info.isHidden = true
+        self.classifier.isHidden = true
+        self.view.addSubview(infoView)
+        infoView.center = self.view.center
+        infoView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        infoView.alpha = 0
+        UIView.animate(withDuration: 0.4){
+//            self.BlurredView.effect = self.effect
+            self.infoView.alpha = 1
+            self.infoView.transform = CGAffineTransform.identity
+        }
+    }
     
-    @IBOutlet weak var imageView: UIImageView!
+    func animationOff () {
+        UIView.animate(withDuration: 0.3, animations:{
+            self.infoView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+//            self.BlurredView.effect = nil
+        }) {(success:Bool) in
+                self.infoView.removeFromSuperview()
+                self.info.isHidden = false
+                self.classifier.isHidden = false
+        }
+    }
     
+    @IBAction func moreInfo(_ sender: Any) {
+        animationOn()
+    }
+    
+    @IBAction func hideInfo(_ sender: Any) {
+        animationOff()
+    }
     
     
     @IBAction func cameraView(_ sender: UIButton) {
@@ -53,7 +91,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true)
-        classifier.text = "Analyzing Image..."
+        
         guard let newImage = info["UIImagePickerControllerOriginalImage"] as? UIImage else {
             return
         }
@@ -66,17 +104,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let request = VNCoreMLRequest(model: visionModel) { request, error in
             if let observations = request.results as? [VNClassificationObservation] {
-                
+
                 // The observations appear to be sorted by confidence already, so we
                 // take the top 5 and map them to an array of (String, Double) tuples.
                 let top5 = observations.prefix(through: 4)
                     .map { ($0.identifier, Double($0.confidence)) }
                 self.show(results: top5)
+                self.info.isHidden = false
             }
         }
-        
+
         request.imageCropAndScaleOption = .centerCrop
-        
+
         let handler = VNImageRequestHandler(cgImage: newImage.cgImage!)
         try? handler.perform([request])
  
@@ -86,7 +125,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        classifier.text = "I think this is \(prediction.classLabel)."
 //        print("This is \(prediction.classLabel) \n")
 //        print("and \(prediction.prob) \n")
+        
     }
+    
+    
+    
     typealias Prediction = (String, Double)
     
     func show(results: [Prediction]) {
@@ -95,6 +138,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             s.append(String(format: "%d: %@ (%3.2f%%)", i + 1, pred.0, pred.1 * 100))
         }
         classifier.text = s.joined(separator: "\n\n")
+        
     }
     
     func top(_ k: Int, _ prob: [String: Double]) -> [Prediction] {

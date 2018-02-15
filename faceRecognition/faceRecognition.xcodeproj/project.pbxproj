@@ -14,10 +14,10 @@
 		7903228D2015166500A801E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7903228B2015166500A801E9 /* LaunchScreen.storyboard */; };
 		7926695C203247FD007941B9 /* resnet_id.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7926695B203247FD007941B9 /* resnet_id.mlmodel */; };
 		7926696420325A95007941B9 /* model_ft.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7926696320325A95007941B9 /* model_ft.mlmodel */; };
+		794524EC2035017800E9E7B1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794524EB2035017800E9E7B1 /* Launch Screen.storyboard */; };
 		796A38892022B1BE00C68F41 /* vggface.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A38882022B1BE00C68F41 /* vggface.mlmodel */; };
 		796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */; };
 		796A388F202360F900C68F41 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388E202360F900C68F41 /* MobileNet.mlmodel */; };
-		79994C11202A757100AF1244 /* sphereNet_mean.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 79994C10202A757100AF1244 /* sphereNet_mean.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +30,10 @@
 		7903228E2015166500A801E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7926695B203247FD007941B9 /* resnet_id.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = resnet_id.mlmodel; path = ../../../coremlConversion/resnet_id.mlmodel; sourceTree = "<group>"; };
 		7926696320325A95007941B9 /* model_ft.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = model_ft.mlmodel; path = ../../../coremlConversion/model_ft.mlmodel; sourceTree = "<group>"; };
+		794524EB2035017800E9E7B1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		796A38882022B1BE00C68F41 /* vggface.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = vggface.mlmodel; path = ../../../../Downloads/vgg_face_caffe/vggface.mlmodel; sourceTree = "<group>"; };
 		796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = VGG16Face.mlmodel; path = ../../../../Downloads/vgg_face_caffe/VGG16Face.mlmodel; sourceTree = "<group>"; };
 		796A388E202360F900C68F41 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = "../../../../Downloads/ClassifyingImagesWithVisionAndCoreML/Vision+ML Example/Model/MobileNet.mlmodel"; sourceTree = "<group>"; };
-		79994C10202A757100AF1244 /* sphereNet_mean.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = sphereNet_mean.mlmodel; path = ../../../../Downloads/spherenet2/sphereNet_mean.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +69,11 @@
 				790322822015166500A801E9 /* AppDelegate.swift */,
 				790322842015166500A801E9 /* ViewController.swift */,
 				790322862015166500A801E9 /* Main.storyboard */,
+				794524EB2035017800E9E7B1 /* Launch Screen.storyboard */,
 				790322892015166500A801E9 /* Assets.xcassets */,
 				7903228B2015166500A801E9 /* LaunchScreen.storyboard */,
 				7903228E2015166500A801E9 /* Info.plist */,
 				796A388E202360F900C68F41 /* MobileNet.mlmodel */,
-				79994C10202A757100AF1244 /* sphereNet_mean.mlmodel */,
 				7926695B203247FD007941B9 /* resnet_id.mlmodel */,
 				796A38882022B1BE00C68F41 /* vggface.mlmodel */,
 				796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */,
@@ -143,6 +143,7 @@
 			files = (
 				7903228D2015166500A801E9 /* LaunchScreen.storyboard in Resources */,
 				7903228A2015166500A801E9 /* Assets.xcassets in Resources */,
+				794524EC2035017800E9E7B1 /* Launch Screen.storyboard in Resources */,
 				790322882015166500A801E9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,7 +160,6 @@
 				7926696420325A95007941B9 /* model_ft.mlmodel in Sources */,
 				790322852015166500A801E9 /* ViewController.swift in Sources */,
 				790322832015166500A801E9 /* AppDelegate.swift in Sources */,
-				79994C11202A757100AF1244 /* sphereNet_mean.mlmodel in Sources */,
 				796A388F202360F900C68F41 /* MobileNet.mlmodel in Sources */,
 				796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */,
 			);
