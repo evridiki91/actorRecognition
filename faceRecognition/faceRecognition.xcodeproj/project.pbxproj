@@ -18,6 +18,8 @@
 		796A38892022B1BE00C68F41 /* vggface.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A38882022B1BE00C68F41 /* vggface.mlmodel */; };
 		796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */; };
 		796A388F202360F900C68F41 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388E202360F900C68F41 /* MobileNet.mlmodel */; };
+		79DF4C88203F8B2200DE1934 /* sphereface.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 79DF4C87203F8B2200DE1934 /* sphereface.mlmodel */; };
+		79DF4C8A20470E8C00DE1934 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DF4C8920470E8C00DE1934 /* Actor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		796A38882022B1BE00C68F41 /* vggface.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = vggface.mlmodel; path = ../../../../Downloads/vgg_face_caffe/vggface.mlmodel; sourceTree = "<group>"; };
 		796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = VGG16Face.mlmodel; path = ../../../../Downloads/vgg_face_caffe/VGG16Face.mlmodel; sourceTree = "<group>"; };
 		796A388E202360F900C68F41 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNet.mlmodel; path = "../../../../Downloads/ClassifyingImagesWithVisionAndCoreML/Vision+ML Example/Model/MobileNet.mlmodel"; sourceTree = "<group>"; };
+		79DF4C87203F8B2200DE1934 /* sphereface.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = sphereface.mlmodel; path = ../../../coremlConversion/sphereface.mlmodel; sourceTree = "<group>"; };
+		79DF4C8920470E8C00DE1934 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				790322822015166500A801E9 /* AppDelegate.swift */,
+				79DF4C8920470E8C00DE1934 /* Actor.swift */,
 				790322842015166500A801E9 /* ViewController.swift */,
 				790322862015166500A801E9 /* Main.storyboard */,
 				794524EB2035017800E9E7B1 /* Launch Screen.storyboard */,
@@ -75,6 +80,7 @@
 				7903228E2015166500A801E9 /* Info.plist */,
 				796A388E202360F900C68F41 /* MobileNet.mlmodel */,
 				7926695B203247FD007941B9 /* resnet_id.mlmodel */,
+				79DF4C87203F8B2200DE1934 /* sphereface.mlmodel */,
 				796A38882022B1BE00C68F41 /* vggface.mlmodel */,
 				796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */,
 				7926696320325A95007941B9 /* model_ft.mlmodel */,
@@ -161,6 +167,8 @@
 				790322852015166500A801E9 /* ViewController.swift in Sources */,
 				790322832015166500A801E9 /* AppDelegate.swift in Sources */,
 				796A388F202360F900C68F41 /* MobileNet.mlmodel in Sources */,
+				79DF4C8A20470E8C00DE1934 /* Actor.swift in Sources */,
+				79DF4C88203F8B2200DE1934 /* sphereface.mlmodel in Sources */,
 				796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

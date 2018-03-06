@@ -4,6 +4,11 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Take a photo of someone so that the app will recognize him</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Select an image for recognizing actors</string>
 	<key>CFBundleDevelopmentRegion</key>

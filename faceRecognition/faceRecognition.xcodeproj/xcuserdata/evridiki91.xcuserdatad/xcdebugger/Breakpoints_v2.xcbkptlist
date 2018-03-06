@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "faceRecognition/ViewController.swift"
-            timestampString = "540361520.333926"
+            timestampString = "542007380.73243"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "animationOff()"
             landmarkType = "7">
             <Locations>
@@ -62,6 +62,162 @@
                   startingLineNumber = "64"
                   endingLineNumber = "64"
                   offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "faceRecognition/ViewController.swift"
+            timestampString = "542007380.732973"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.effect.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIVisualEffect&gt;"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "541650577.17093"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.effect.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIVisualEffect&gt;"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "541650577.174904"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; faceRecognition.ViewController"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "541650577.1774139"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;faceRecognition.ViewController&gt;"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "541650577.180266"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "faceRecognition/ViewController.swift"
+            timestampString = "542007380.733326"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.effect.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIVisualEffect&gt;"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "541650604.699919"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.effect.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIVisualEffect&gt;"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "541650604.702209"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; faceRecognition.ViewController"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "541650604.7054991"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "faceRecognition.ViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;faceRecognition.ViewController&gt;"
+                  moduleName = "faceRecognition"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/evridiki91/Desktop/FaceRecognition/faceRecognition/faceRecognition/ViewController.swift"
+                  timestampString = "541650604.711346"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>
