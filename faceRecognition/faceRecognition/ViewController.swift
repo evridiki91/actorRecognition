@@ -88,9 +88,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }.resume()
     }
     
-    var model: VGG16Face!
+    var model: model_ft!
     override func viewWillAppear(_ animated: Bool) {
-        model = VGG16Face()
+        model = model_ft()
     }
     
     override func didReceiveMemoryWarning() {
@@ -159,7 +159,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
 //        UIGraphicsEndImageContext()
         let startTime = CFAbsoluteTimeGetCurrent()
-        for _ in 1...50 {
+        for _ in 1...1 {
             guard let visionModel = try? VNCoreMLModel(for: model.model) else {
                 fatalError("Error")
             }

@@ -7,33 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		790322832015166500A801E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790322822015166500A801E9 /* AppDelegate.swift */; };
-		790322852015166500A801E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790322842015166500A801E9 /* ViewController.swift */; };
-		790322882015166500A801E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790322862015166500A801E9 /* Main.storyboard */; };
-		7903228A2015166500A801E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 790322892015166500A801E9 /* Assets.xcassets */; };
-		7903228D2015166500A801E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7903228B2015166500A801E9 /* LaunchScreen.storyboard */; };
-		7926696420325A95007941B9 /* model_ft.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7926696320325A95007941B9 /* model_ft.mlmodel */; };
-		794524EC2035017800E9E7B1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794524EB2035017800E9E7B1 /* Launch Screen.storyboard */; };
-		796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */; };
-		79DF4C8A20470E8C00DE1934 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DF4C8920470E8C00DE1934 /* Actor.swift */; };
+		79D162832061FB810065B9AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162822061FB810065B9AE /* AppDelegate.swift */; };
+		79D162852061FB810065B9AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162842061FB810065B9AE /* ViewController.swift */; };
+		79D162882061FB810065B9AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D162862061FB810065B9AE /* Main.storyboard */; };
+		79D1628A2061FB810065B9AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D162892061FB810065B9AE /* Assets.xcassets */; };
+		79D1628D2061FB810065B9AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D1628B2061FB810065B9AE /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7903227F2015166500A801E9 /* faceRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = faceRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		790322822015166500A801E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		790322842015166500A801E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		790322872015166500A801E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		790322892015166500A801E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7903228C2015166500A801E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7903228E2015166500A801E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7926696320325A95007941B9 /* model_ft.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = model_ft.mlmodel; path = ../../../coremlConversion/model_ft.mlmodel; sourceTree = "<group>"; };
-		794524EB2035017800E9E7B1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = VGG16Face.mlmodel; path = ../../../../Downloads/vgg_face_caffe/VGG16Face.mlmodel; sourceTree = "<group>"; };
-		79DF4C8920470E8C00DE1934 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
+		79D1627F2061FB810065B9AE /* YoloCroppingFaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoloCroppingFaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79D162822061FB810065B9AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		79D162842061FB810065B9AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		79D162872061FB810065B9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79D162892061FB810065B9AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79D1628C2061FB810065B9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79D1628E2061FB810065B9AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7903227C2015166500A801E9 /* Frameworks */ = {
+		79D1627C2061FB810065B9AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,76 +35,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		790322762015166500A801E9 = {
+		79D162762061FB810065B9AE = {
 			isa = PBXGroup;
 			children = (
-				790322812015166500A801E9 /* faceRecognition */,
-				790322802015166500A801E9 /* Products */,
+				79D162812061FB810065B9AE /* YoloCroppingFaces */,
+				79D162802061FB810065B9AE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		790322802015166500A801E9 /* Products */ = {
+		79D162802061FB810065B9AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7903227F2015166500A801E9 /* faceRecognition.app */,
+				79D1627F2061FB810065B9AE /* YoloCroppingFaces.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		790322812015166500A801E9 /* faceRecognition */ = {
+		79D162812061FB810065B9AE /* YoloCroppingFaces */ = {
 			isa = PBXGroup;
 			children = (
-				790322822015166500A801E9 /* AppDelegate.swift */,
-				79DF4C8920470E8C00DE1934 /* Actor.swift */,
-				790322842015166500A801E9 /* ViewController.swift */,
-				790322862015166500A801E9 /* Main.storyboard */,
-				794524EB2035017800E9E7B1 /* Launch Screen.storyboard */,
-				790322892015166500A801E9 /* Assets.xcassets */,
-				7903228B2015166500A801E9 /* LaunchScreen.storyboard */,
-				7903228E2015166500A801E9 /* Info.plist */,
-				796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */,
-				7926696320325A95007941B9 /* model_ft.mlmodel */,
+				79D162822061FB810065B9AE /* AppDelegate.swift */,
+				79D162842061FB810065B9AE /* ViewController.swift */,
+				79D162862061FB810065B9AE /* Main.storyboard */,
+				79D162892061FB810065B9AE /* Assets.xcassets */,
+				79D1628B2061FB810065B9AE /* LaunchScreen.storyboard */,
+				79D1628E2061FB810065B9AE /* Info.plist */,
 			);
-			path = faceRecognition;
+			path = YoloCroppingFaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7903227E2015166500A801E9 /* faceRecognition */ = {
+		79D1627E2061FB810065B9AE /* YoloCroppingFaces */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 790322912015166500A801E9 /* Build configuration list for PBXNativeTarget "faceRecognition" */;
+			buildConfigurationList = 79D162912061FB810065B9AE /* Build configuration list for PBXNativeTarget "YoloCroppingFaces" */;
 			buildPhases = (
-				7903227B2015166500A801E9 /* Sources */,
-				7903227C2015166500A801E9 /* Frameworks */,
-				7903227D2015166500A801E9 /* Resources */,
+				79D1627B2061FB810065B9AE /* Sources */,
+				79D1627C2061FB810065B9AE /* Frameworks */,
+				79D1627D2061FB810065B9AE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = faceRecognition;
-			productName = faceRecognition;
-			productReference = 7903227F2015166500A801E9 /* faceRecognition.app */;
+			name = YoloCroppingFaces;
+			productName = YoloCroppingFaces;
+			productReference = 79D1627F2061FB810065B9AE /* YoloCroppingFaces.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		790322772015166500A801E9 /* Project object */ = {
+		79D162772061FB810065B9AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Evridiki Christodoulou";
 				TargetAttributes = {
-					7903227E2015166500A801E9 = {
-						CreatedOnToolsVersion = 9.1;
+					79D1627E2061FB810065B9AE = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 7903227A2015166500A801E9 /* Build configuration list for PBXProject "faceRecognition" */;
+			buildConfigurationList = 79D1627A2061FB810065B9AE /* Build configuration list for PBXProject "YoloCroppingFaces" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -120,58 +108,54 @@
 				en,
 				Base,
 			);
-			mainGroup = 790322762015166500A801E9;
-			productRefGroup = 790322802015166500A801E9 /* Products */;
+			mainGroup = 79D162762061FB810065B9AE;
+			productRefGroup = 79D162802061FB810065B9AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7903227E2015166500A801E9 /* faceRecognition */,
+				79D1627E2061FB810065B9AE /* YoloCroppingFaces */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7903227D2015166500A801E9 /* Resources */ = {
+		79D1627D2061FB810065B9AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7903228D2015166500A801E9 /* LaunchScreen.storyboard in Resources */,
-				7903228A2015166500A801E9 /* Assets.xcassets in Resources */,
-				794524EC2035017800E9E7B1 /* Launch Screen.storyboard in Resources */,
-				790322882015166500A801E9 /* Main.storyboard in Resources */,
+				79D1628D2061FB810065B9AE /* LaunchScreen.storyboard in Resources */,
+				79D1628A2061FB810065B9AE /* Assets.xcassets in Resources */,
+				79D162882061FB810065B9AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7903227B2015166500A801E9 /* Sources */ = {
+		79D1627B2061FB810065B9AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7926696420325A95007941B9 /* model_ft.mlmodel in Sources */,
-				790322852015166500A801E9 /* ViewController.swift in Sources */,
-				790322832015166500A801E9 /* AppDelegate.swift in Sources */,
-				79DF4C8A20470E8C00DE1934 /* Actor.swift in Sources */,
-				796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */,
+				79D162852061FB810065B9AE /* ViewController.swift in Sources */,
+				79D162832061FB810065B9AE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		790322862015166500A801E9 /* Main.storyboard */ = {
+		79D162862061FB810065B9AE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				790322872015166500A801E9 /* Base */,
+				79D162872061FB810065B9AE /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		7903228B2015166500A801E9 /* LaunchScreen.storyboard */ = {
+		79D1628B2061FB810065B9AE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7903228C2015166500A801E9 /* Base */,
+				79D1628C2061FB810065B9AE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -179,7 +163,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7903228F2015166500A801E9 /* Debug */ = {
+		79D1628F2061FB810065B9AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -227,7 +211,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -236,7 +220,7 @@
 			};
 			name = Debug;
 		};
-		790322902015166500A801E9 /* Release */ = {
+		79D162902061FB810065B9AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,7 +262,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -286,30 +270,30 @@
 			};
 			name = Release;
 		};
-		790322922015166500A801E9 /* Debug */ = {
+		79D162922061FB810065B9AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3EW38UR6TZ;
-				INFOPLIST_FILE = faceRecognition/Info.plist;
+				INFOPLIST_FILE = YoloCroppingFaces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.echristodoulou.faceRecognition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.echristodoulou.YoloCroppingFaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		790322932015166500A801E9 /* Release */ = {
+		79D162932061FB810065B9AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3EW38UR6TZ;
-				INFOPLIST_FILE = faceRecognition/Info.plist;
+				INFOPLIST_FILE = YoloCroppingFaces/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.echristodoulou.faceRecognition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.echristodoulou.YoloCroppingFaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -319,25 +303,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7903227A2015166500A801E9 /* Build configuration list for PBXProject "faceRecognition" */ = {
+		79D1627A2061FB810065B9AE /* Build configuration list for PBXProject "YoloCroppingFaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7903228F2015166500A801E9 /* Debug */,
-				790322902015166500A801E9 /* Release */,
+				79D1628F2061FB810065B9AE /* Debug */,
+				79D162902061FB810065B9AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		790322912015166500A801E9 /* Build configuration list for PBXNativeTarget "faceRecognition" */ = {
+		79D162912061FB810065B9AE /* Build configuration list for PBXNativeTarget "YoloCroppingFaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				790322922015166500A801E9 /* Debug */,
-				790322932015166500A801E9 /* Release */,
+				79D162922061FB810065B9AE /* Debug */,
+				79D162932061FB810065B9AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 790322772015166500A801E9 /* Project object */;
+	rootObject = 79D162772061FB810065B9AE /* Project object */;
 }
