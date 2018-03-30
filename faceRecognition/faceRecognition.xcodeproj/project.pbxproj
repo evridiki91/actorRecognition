@@ -15,6 +15,7 @@
 		7926696420325A95007941B9 /* model_ft.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7926696320325A95007941B9 /* model_ft.mlmodel */; };
 		794524EC2035017800E9E7B1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794524EB2035017800E9E7B1 /* Launch Screen.storyboard */; };
 		796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */; };
+		79D1629C206730660065B9AE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1629B206730660065B9AE /* CameraViewController.swift */; };
 		79DF4C8A20470E8C00DE1934 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DF4C8920470E8C00DE1934 /* Actor.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		7926696320325A95007941B9 /* model_ft.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = model_ft.mlmodel; path = ../../../coremlConversion/model_ft.mlmodel; sourceTree = "<group>"; };
 		794524EB2035017800E9E7B1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = VGG16Face.mlmodel; path = ../../../../Downloads/vgg_face_caffe/VGG16Face.mlmodel; sourceTree = "<group>"; };
+		79D1629B206730660065B9AE /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		79DF4C8920470E8C00DE1934 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 				7903228E2015166500A801E9 /* Info.plist */,
 				796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */,
 				7926696320325A95007941B9 /* model_ft.mlmodel */,
+				79D1629B206730660065B9AE /* CameraViewController.swift */,
 			);
 			path = faceRecognition;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				790322832015166500A801E9 /* AppDelegate.swift in Sources */,
 				79DF4C8A20470E8C00DE1934 /* Actor.swift in Sources */,
 				796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */,
+				79D1629C206730660065B9AE /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

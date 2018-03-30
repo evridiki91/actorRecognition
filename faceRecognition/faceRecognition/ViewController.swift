@@ -33,7 +33,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var effect:UIVisualEffect!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet var infoView: UIView!
     @IBOutlet weak var BlurredView: UIVisualEffectView!
     @IBOutlet weak var classifier: UILabel!
@@ -137,11 +136,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    @IBAction func cameraView(_ sender: UIButton) {
-        imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = false
-        present(imagePicker, animated: true, completion: nil)
+//    @IBAction func cameraView(_ sender: UIButton) {
+//        imagePicker.sourceType = .camera
+//        imagePicker.allowsEditing = false
+//        present(imagePicker, animated: true, completion: nil)
+//    }
+    @IBAction func goToCameraView(_ sender: Any) {
+        performSegue(withIdentifier: "segueToCamera", sender: self)
     }
+    
+    
     
     @IBAction func libraryView(_ sender: UIButton) {
         imagePicker.sourceType = .photoLibrary
