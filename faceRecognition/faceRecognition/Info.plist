@@ -4,6 +4,8 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Take a photo of someone so that the app will recognize him</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Add images to the library for faces recognized</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

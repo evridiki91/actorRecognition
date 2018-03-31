@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Menlo.ttc">
+            <string>Menlo-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -71,6 +76,7 @@
                                             </state>
                                             <connections>
                                                 <action selector="goToCameraView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z69-aU-stq"/>
+                                                <segue destination="G5w-ay-c1N" kind="show" identifier="segueToCamera" id="Jsl-Fs-QhS"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcR-8i-Hxd">
@@ -114,7 +120,6 @@
                         <outlet property="infoView" destination="R3i-qG-A3r" id="euE-7f-MI6"/>
                         <outlet property="informationLabel" destination="RwP-dN-o4P" id="8Ma-2p-SGk"/>
                         <outlet property="percentage" destination="lKQ-yV-efm" id="jyd-9k-ZDJ"/>
-                        <segue destination="iVi-nY-92T" kind="show" identifier="segueToCamera" id="bXH-Y3-XOF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -146,33 +151,92 @@
             </objects>
             <point key="canvasLocation" x="372" y="62.518740629685162"/>
         </scene>
-        <!--Camera View Controller-->
-        <scene sceneID="Gcz-gT-qi5">
+        <!--View ControllerYOLO-->
+        <scene sceneID="2EU-5W-C3k">
             <objects>
-                <viewController id="iVi-nY-92T" customClass="CameraViewController" customModule="faceRecognition" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="StK-pA-Pha">
+                <viewController id="G5w-ay-c1N" customClass="ViewControllerYOLO" customModule="faceRecognition" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pKk-Nc-U0v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e36-hi-kEf">
-                                <rect key="frame" x="304" y="20" width="55" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
-                                <state key="normal" title="x">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="segueToViewController" id="5Od-To-pzw"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VR3-an-GhT" userLabel="Video Preview">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0I-aK-nDt">
+                                        <rect key="frame" x="140" y="589" width="94" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Start/Stop">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopCamera:" destination="G5w-ay-c1N" eventType="touchUpInside" id="26a-55-yBj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuz-sE-CVj">
+                                        <rect key="frame" x="281" y="596" width="70" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Capture">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="captureImage:" destination="G5w-ay-c1N" eventType="touchUpInside" id="dcg-AI-BaU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rj-zP-U3n">
+                                        <rect key="frame" x="310" y="0.0" width="65" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="EQ6-3t-Hgo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emZ-Hm-zId" userLabel="Results">
+                                <rect key="frame" x="0.0" y="633" width="375" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elapsed time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aad-Zv-ruZ">
+                                        <rect key="frame" x="20" y="10" width="335" height="14"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Aad-Zv-ruZ" secondAttribute="trailing" constant="20" id="9cC-wQ-bso"/>
+                                    <constraint firstAttribute="bottom" secondItem="Aad-Zv-ruZ" secondAttribute="bottom" constant="10" id="Rrb-nm-8fE"/>
+                                    <constraint firstItem="Aad-Zv-ruZ" firstAttribute="top" secondItem="emZ-Hm-zId" secondAttribute="top" constant="10" id="Sxg-3g-XGQ"/>
+                                    <constraint firstItem="Aad-Zv-ruZ" firstAttribute="leading" secondItem="emZ-Hm-zId" secondAttribute="leading" constant="20" id="adN-Wp-DT7"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="zuC-4Z-4vq"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="emZ-Hm-zId" firstAttribute="leading" secondItem="okb-k9-R4P" secondAttribute="leading" id="OWA-R2-PvL"/>
+                            <constraint firstItem="okb-k9-R4P" firstAttribute="bottom" secondItem="emZ-Hm-zId" secondAttribute="bottom" id="SlB-hE-Hm5"/>
+                            <constraint firstItem="VR3-an-GhT" firstAttribute="leading" secondItem="okb-k9-R4P" secondAttribute="leading" id="Zdi-66-8Vv"/>
+                            <constraint firstItem="okb-k9-R4P" firstAttribute="trailing" secondItem="emZ-Hm-zId" secondAttribute="trailing" id="fG4-G4-d1L"/>
+                            <constraint firstItem="VR3-an-GhT" firstAttribute="top" secondItem="pKk-Nc-U0v" secondAttribute="top" id="i8K-nB-cqb"/>
+                            <constraint firstItem="okb-k9-R4P" firstAttribute="trailing" secondItem="VR3-an-GhT" secondAttribute="trailing" id="lSa-JY-eLM"/>
+                            <constraint firstAttribute="bottom" secondItem="VR3-an-GhT" secondAttribute="bottom" id="mJ5-6p-Q1m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="okb-k9-R4P"/>
                     </view>
+                    <connections>
+                        <outlet property="timeLabel" destination="Aad-Zv-ruZ" id="5Cm-mt-PQ2"/>
+                        <outlet property="videoPreview" destination="VR3-an-GhT" id="jDQ-WL-M21"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c5c-Bh-Pa2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SmE-gi-W7p" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="0.0"/>
+            <point key="canvasLocation" x="1189.5999999999999" y="62.518740629685162"/>
         </scene>
     </scenes>
     <resources>

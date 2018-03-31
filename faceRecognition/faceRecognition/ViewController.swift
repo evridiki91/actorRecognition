@@ -10,6 +10,7 @@ import UIKit
 import CoreML
 import Vision
 
+
 struct Json: Decodable {
     let itemListElement: [ItemListElements]
 }
@@ -39,9 +40,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var percentage: UILabel!
     @IBOutlet weak var info: UIButton!
     @IBOutlet weak var informationLabel: UILabel!
-    
-    
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
@@ -58,6 +58,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         infoView.layer.masksToBounds = false
         infoView.layer.cornerRadius = informationLabel.frame.height/2.8
         infoView.clipsToBounds = true
+        
     }
     
     
@@ -97,8 +98,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
-    let imagePicker = UIImagePickerController()
     
+    let imagePicker = UIImagePickerController()
     
     func animationOn() {
         self.info.isHidden = true
@@ -221,7 +222,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //print("Predictions: \(s)")
 
     }
-
+    
     
 }
+
 
