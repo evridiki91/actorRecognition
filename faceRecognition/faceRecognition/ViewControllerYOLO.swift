@@ -10,16 +10,20 @@ import Vision
 import AVFoundation
 import CoreMedia
 import VideoToolbox
-
+import CoreML
 
 class ViewControllerYOLO: UIViewController {
     @IBOutlet weak var videoPreview: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var captureButton: UIButton!
     
     @IBOutlet weak var croppedImageView: UIImageView!
     
+    var vc = ViewController()
+    
     let yolo = YOLO()
+    let model = model_ft()
     
     var videoCapture: VideoCapture!
     var request: VNCoreMLRequest!
@@ -79,6 +83,7 @@ class ViewControllerYOLO: UIViewController {
     //Button for capturing image
     @IBAction func captureImage(_ sender: Any) {
         print("captured")
+        
         if let image = UIImage(pixelBuffer: self.imageToDetect!) {
             
             // Add the view to the view hierarchy so that it shows up on screen
@@ -94,15 +99,73 @@ class ViewControllerYOLO: UIViewController {
                 //            // Create a new image based on the imageRef and rotate back to the original orientation
                 //            let cropped: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
                 //
-                
+               
+            
+                //request.imageCropAndScaleOption = .centerCrop
+//                performSegue(withIdentifier: "backToMain", sender: captureButton)
+                predictUsingVision(image: croppedImage)
                 UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
                 print("saved")
                 print(faces.count)
+                
             }
         }
+        
     }
     
+    /*
+     This uses the Vision framework to drive Core ML.
+     Note that this actually gives a slightly different prediction. This must
+     be related to how the UIImage gets converted.
+     */
+    func predictUsingVision(image: UIImage) {
+        guard let visionModel = try? VNCoreMLModel(for: model.model) else {
+            fatalError("Error")
+        }
+        
+        
+        let request = VNCoreMLRequest(model: visionModel) { request, error in
+            if let observations = request.results as? [VNClassificationObservation] {
+                
+                // The observations appear to be sorted by confidence already, so we
+                // take the top 5 and map them to an array of (String, Double) tuples.
+                let top5 = observations.prefix(through: 0)
+                    .map { ($0.identifier, Double($0.confidence)) }
+                self.vc.show(results: top5)
+            }
+        }
+        
+        request.imageCropAndScaleOption = .centerCrop
+        
+        let handler = VNImageRequestHandler(cgImage: image.cgImage!)
+        try? handler.perform([request])
+    }
     
+//    typealias Prediction = (String, Double)
+//    func show2(results: [Prediction]) {
+//        var s: [String] = []
+//        for (_,pred) in results.enumerated() {
+//            s.append(String(format: " %@ (%3.2f%%)", pred.0, pred.1 * 100))
+//            //print separately the name and percentage
+//        }
+//
+//        let string = s.joined(separator: "\n")
+//        let parsed_string = string.replacingOccurrences(of: "\\s?\\([^)]*\\)", with: "", options: .regularExpression)
+////        performSegue(withIdentifier: "backToMain", sender: captureButton)
+//        ViewController.classifier.text = string
+//        ViewController.classifier.isHidden = false
+//
+//        //print("classifier text: \(classifier.text)")
+//        let name = (parsed_string).replacingOccurrences(of: " ", with: "+")
+//        ViewController().loadFromApi(name: name)
+//        //print("new text: \(text)")
+//        //print("Predictions: \(s)")
+//
+//    }
+    
+//    @IBAction func goBackToMainView(_ sender: Any) {
+//        performSegue(withIdentifier: "backToMain", sender: self)
+//    }
     
     func setUpVision() {
         guard let visionModel = try? VNCoreMLModel(for: yolo.model.model) else {

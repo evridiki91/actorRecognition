@@ -185,14 +185,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rj-zP-U3n">
-                                        <rect key="frame" x="310" y="0.0" width="65" height="61"/>
+                                        <rect key="frame" x="310" y="28" width="65" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
                                         <state key="normal" title="X">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="EQ6-3t-Hgo"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="backToMain" id="EQ6-3t-Hgo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -230,6 +230,7 @@
                         <viewLayoutGuide key="safeArea" id="okb-k9-R4P"/>
                     </view>
                     <connections>
+                        <outlet property="captureButton" destination="vuz-sE-CVj" id="LGv-3v-6Jf"/>
                         <outlet property="timeLabel" destination="Aad-Zv-ruZ" id="5Cm-mt-PQ2"/>
                         <outlet property="videoPreview" destination="VR3-an-GhT" id="jDQ-WL-M21"/>
                     </connections>

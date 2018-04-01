@@ -49,7 +49,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         BlurredView.effect = nil
         self.info.isHidden = true
         imageView.isHidden = true
-        classifier.isHidden = true
+        self.classifier.isHidden = true
+        //self.classifier.text = ""
         imageView.layer.borderWidth = 0
         imageView.layer.masksToBounds = false
         imageView.layer.cornerRadius = min(imageView.frame.size.height, imageView.frame.size.width) / 2.0
@@ -78,7 +79,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let decoder = JSONDecoder()
         let persons = try decoder.decode(Json.self, from: data)
             DispatchQueue.main.async {
-            self.informationLabel.text = persons.itemListElement.first!.result.detailedDescription.articleBody
+                self.informationLabel.text = persons.itemListElement.first!.result.detailedDescription.articleBody
             }
             //print("All stuff are: \(persons.itemListElement.first!.result.detailedDescription.articleBody)")
             
@@ -207,13 +208,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var s: [String] = []
         for (_,pred) in results.enumerated() {
             s.append(String(format: " %@ (%3.2f%%)", pred.0, pred.1 * 100))
-            //print separately the name and percentage
+            
         }
         
         let string = s.joined(separator: "\n")
-        classifier.text = string
-        classifier.isHidden = false
+        //print(classifier.text)
         let parsed_string = string.replacingOccurrences(of: "\\s?\\([^)]*\\)", with: "", options: .regularExpression)
+//        self.classifier.text = string
+//        self.classifier.isHidden = false
+        
         
         //print("classifier text: \(classifier.text)")
         let name = (parsed_string).replacingOccurrences(of: " ", with: "+")
