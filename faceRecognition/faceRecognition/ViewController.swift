@@ -32,25 +32,25 @@ struct Description: Decodable {
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var effect:UIVisualEffect!
+    //var effect:UIVisualEffect!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var infoView: UIView!
-    @IBOutlet weak var BlurredView: UIVisualEffectView!
+    //@IBOutlet weak var BlurredView: UIVisualEffectView!
     @IBOutlet weak var classifier: UILabel!
-    @IBOutlet weak var percentage: UILabel!
+    
+    //@IBOutlet weak var percentage: UILabel!
     @IBOutlet weak var info: UIButton!
     @IBOutlet weak var informationLabel: UILabel!
-
-
+    var finalImage: UIImage!
+    var flag: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        effect = BlurredView.effect
-        BlurredView.effect = nil
         self.info.isHidden = true
         imageView.isHidden = true
         self.classifier.isHidden = true
-        //self.classifier.text = ""
+        self.classifier.text = ""
         imageView.layer.borderWidth = 0
         imageView.layer.masksToBounds = false
         imageView.layer.cornerRadius = min(imageView.frame.size.height, imageView.frame.size.width) / 2.0
@@ -59,6 +59,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         infoView.layer.masksToBounds = false
         infoView.layer.cornerRadius = informationLabel.frame.height/2.8
         infoView.clipsToBounds = true
+        imageView.image = finalImage
+        if (flag == true){
+            self.callPrediction()
+        }
         
     }
     
@@ -89,10 +93,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }.resume()
     }
     
-    var model: model_ft!
-    override func viewWillAppear(_ animated: Bool) {
-        model = model_ft()
-    }
+    let model = model_ft()
+//    var model: model_ft!
+//    override func viewWillAppear(_ animated: Bool) {
+//        model = model_ft()
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -105,7 +110,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func animationOn() {
         self.info.isHidden = true
         self.classifier.isHidden = true
-        self.percentage.isHidden = true
+        //self.percentage.isHidden = true
         self.view.addSubview(infoView)
         infoView.center = self.view.center
         infoView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
@@ -125,7 +130,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.infoView.removeFromSuperview()
                 self.info.isHidden = false
                 self.classifier.isHidden = false
-                self.percentage.isHidden = false
+               // self.percentage.isHidden = false
         }
     }
     
@@ -164,66 +169,63 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
 //        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
 //        UIGraphicsEndImageContext()
-        let startTime = CFAbsoluteTimeGetCurrent()
+        //let startTime = CFAbsoluteTimeGetCurrent()
         for _ in 1...1 {
-            guard let visionModel = try? VNCoreMLModel(for: model.model) else {
-                fatalError("Error")
-            }
-            
-            let request = VNCoreMLRequest(model: visionModel) { request, error in
-                if let observations = request.results as? [VNClassificationObservation] {
+            self.predictUsingVision(image: newImage)
 
-                    // The observations appear to be sorted by confidence already, so we
-                    // take the top 5 and map them to an array of (String, Double) tuples.
-                    let top = observations.prefix(through: 0)
-                        .map { ($0.identifier, Double($0.confidence)) }
-                    self.show(results: top)
-                    self.info.isHidden = false
-                }
-            }
-
-            request.imageCropAndScaleOption = .centerCrop
-
-            let handler = VNImageRequestHandler(cgImage: newImage.cgImage!)
-            try? handler.perform([request])
-            
-            imageView.isHidden = false
-            imageView.image = newImage
-
-            
-    //        classifier.text = "I think this is \(prediction.classLabel)."
-    //        print("This is \(prediction.classLabel) \n")
-    //        print("and \(prediction.prob) \n")
         }
-        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
-        print("Time elapsed for \(timeElapsed) s.")
-
     }
     
-    
+    /*
+     This uses the Vision framework to drive Core ML.
+     Note that this actually gives a slightly different prediction. This must
+     be related to how the UIImage gets converted.
+     */
+    func predictUsingVision(image: UIImage) {
+        guard let visionModel = try? VNCoreMLModel(for: model.model) else {
+            fatalError("Error")
+        }
+        
+        
+        let request = VNCoreMLRequest(model: visionModel) { request, error in
+            if let observations = request.results as? [VNClassificationObservation] {
+                
+                // The observations appear to be sorted by confidence already, so we
+                // take the top 5 and map them to an array of (String, Double) tuples.
+                //print(observations)
+                self.show(result: (observations[0].identifier,Double(observations[0].confidence)))
+                self.info.isHidden = false
+            }
+        }
+        
+        request.imageCropAndScaleOption = .centerCrop
+        
+        let handler = VNImageRequestHandler(cgImage: image.cgImage!)
+        try? handler.perform([request])
+        imageView.isHidden = false
+        imageView.image = image
+    }
     
     typealias Prediction = (String, Double)
     
-    func show(results: [Prediction]) {
-        var s: [String] = []
-        for (_,pred) in results.enumerated() {
-            s.append(String(format: " %@ (%3.2f%%)", pred.0, pred.1 * 100))
-            
-        }
+    func show(result: Prediction) {
+        let string = result.0 + String(format: " %.2f", result.1*100) + "%"
+        let nameString = result.0
         
-        let string = s.joined(separator: "\n")
+        print("String \(string)")
         //print(classifier.text)
-        let parsed_string = string.replacingOccurrences(of: "\\s?\\([^)]*\\)", with: "", options: .regularExpression)
-//        self.classifier.text = string
-//        self.classifier.isHidden = false
-        
-        
-        //print("classifier text: \(classifier.text)")
-        let name = (parsed_string).replacingOccurrences(of: " ", with: "+")
+        //let parsed_string = string.replacingOccurrences(of: "\\s?\\([^)]*\\)", with: "", options: .regularExpression)
+       
+        let name = (nameString).replacingOccurrences(of: " ", with: "+")
         loadFromApi(name: name)
-        //print("new text: \(text)")
-        //print("Predictions: \(s)")
+        self.classifier.isHidden = false
+        self.classifier.text = string
+        
 
+    }
+    
+    func callPrediction(){
+        predictUsingVision(image: finalImage)
     }
     
     

@@ -21,6 +21,7 @@
 		79D162AB206FDCF00065B9AE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162A8206FDCF00065B9AE /* Helpers.swift */; };
 		79D162AC206FDCF00065B9AE /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162A9206FDCF00065B9AE /* BoundingBox.swift */; };
 		79D162AE206FE0450065B9AE /* ViewControllerYOLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162AD206FE0450065B9AE /* ViewControllerYOLO.swift */; };
+		79D162B02072A6660065B9AE /* ViewControllerStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162AF2072A6660065B9AE /* ViewControllerStart.swift */; };
 		79DF4C8A20470E8C00DE1934 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DF4C8920470E8C00DE1934 /* Actor.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		79D162A8206FDCF00065B9AE /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		79D162A9206FDCF00065B9AE /* BoundingBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
 		79D162AD206FE0450065B9AE /* ViewControllerYOLO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerYOLO.swift; sourceTree = "<group>"; };
+		79D162AF2072A6660065B9AE /* ViewControllerStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerStart.swift; sourceTree = "<group>"; };
 		79DF4C8920470E8C00DE1934 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				790322822015166500A801E9 /* AppDelegate.swift */,
 				79DF4C8920470E8C00DE1934 /* Actor.swift */,
 				790322842015166500A801E9 /* ViewController.swift */,
+				79D162AD206FE0450065B9AE /* ViewControllerYOLO.swift */,
 				790322862015166500A801E9 /* Main.storyboard */,
 				794524EB2035017800E9E7B1 /* Launch Screen.storyboard */,
 				790322892015166500A801E9 /* Assets.xcassets */,
@@ -89,7 +92,7 @@
 				796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */,
 				7926696320325A95007941B9 /* model_ft.mlmodel */,
 				79D1629F206FD7710065B9AE /* YOLO.swift */,
-				79D162AD206FE0450065B9AE /* ViewControllerYOLO.swift */,
+				79D162AF2072A6660065B9AE /* ViewControllerStart.swift */,
 			);
 			path = faceRecognition;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				79D162A3206FD7720065B9AE /* YOLO.swift in Sources */,
 				790322852015166500A801E9 /* ViewController.swift in Sources */,
 				79D162AC206FDCF00065B9AE /* BoundingBox.swift in Sources */,
+				79D162B02072A6660065B9AE /* ViewControllerStart.swift in Sources */,
 				79D162AB206FDCF00065B9AE /* Helpers.swift in Sources */,
 				790322832015166500A801E9 /* AppDelegate.swift in Sources */,
 				79D162AA206FDCF00065B9AE /* VideoCapture.swift in Sources */,

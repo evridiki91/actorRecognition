@@ -18,12 +18,7 @@ class ViewControllerYOLO: UIViewController {
     
     @IBOutlet weak var captureButton: UIButton!
     
-    @IBOutlet weak var croppedImageView: UIImageView!
-    
-    var vc = ViewController()
-    
     let yolo = YOLO()
-    let model = model_ft()
     
     var videoCapture: VideoCapture!
     var request: VNCoreMLRequest!
@@ -37,6 +32,7 @@ class ViewControllerYOLO: UIViewController {
     let semaphore = DispatchSemaphore(value: 2)
     var faces: [CGRect] = []
     
+    var imageToPass: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +75,17 @@ class ViewControllerYOLO: UIViewController {
             }
         }
     }
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "backToMain"){
+            let destination = segue.destination as! ViewController
+            print("Back to Main")
+            destination.finalImage = self.imageToPass
+            destination.flag = true
+        }
+    }
+    
     
     //Button for capturing image
     @IBAction func captureImage(_ sender: Any) {
@@ -91,79 +98,23 @@ class ViewControllerYOLO: UIViewController {
                 
                 let croppedCGImage:CGImage = (image.cgImage?.cropping(to: face))!
                 let croppedImage = UIImage(cgImage: croppedCGImage,scale: image.scale, orientation: image.imageOrientation)
-                //let image: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: image.imageOrientation)!
+               self.imageToPass = croppedImage
                 
-                //            // Create bitmap image from context using the rect
-                //            let imageRef: CGImage = image.cgImage!.cropping(to: faces[0])!
-                //
-                //            // Create a new image based on the imageRef and rotate back to the original orientation
-                //            let cropped: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
-                //
-               
-            
-                //request.imageCropAndScaleOption = .centerCrop
-//                performSegue(withIdentifier: "backToMain", sender: captureButton)
-                predictUsingVision(image: croppedImage)
-                UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
-                print("saved")
-                print(faces.count)
+               performSegue(withIdentifier: "backToMain", sender: self)
+                
+//                UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
+//                print("saved")
+//                print(faces.count)
                 
             }
         }
         
     }
     
-    /*
-     This uses the Vision framework to drive Core ML.
-     Note that this actually gives a slightly different prediction. This must
-     be related to how the UIImage gets converted.
-     */
-    func predictUsingVision(image: UIImage) {
-        guard let visionModel = try? VNCoreMLModel(for: model.model) else {
-            fatalError("Error")
-        }
-        
-        
-        let request = VNCoreMLRequest(model: visionModel) { request, error in
-            if let observations = request.results as? [VNClassificationObservation] {
-                
-                // The observations appear to be sorted by confidence already, so we
-                // take the top 5 and map them to an array of (String, Double) tuples.
-                let top5 = observations.prefix(through: 0)
-                    .map { ($0.identifier, Double($0.confidence)) }
-                self.vc.show(results: top5)
-            }
-        }
-        
-        request.imageCropAndScaleOption = .centerCrop
-        
-        let handler = VNImageRequestHandler(cgImage: image.cgImage!)
-        try? handler.perform([request])
-    }
-    
-//    typealias Prediction = (String, Double)
-//    func show2(results: [Prediction]) {
-//        var s: [String] = []
-//        for (_,pred) in results.enumerated() {
-//            s.append(String(format: " %@ (%3.2f%%)", pred.0, pred.1 * 100))
-//            //print separately the name and percentage
-//        }
-//
-//        let string = s.joined(separator: "\n")
-//        let parsed_string = string.replacingOccurrences(of: "\\s?\\([^)]*\\)", with: "", options: .regularExpression)
-////        performSegue(withIdentifier: "backToMain", sender: captureButton)
-//        ViewController.classifier.text = string
-//        ViewController.classifier.isHidden = false
-//
-//        //print("classifier text: \(classifier.text)")
-//        let name = (parsed_string).replacingOccurrences(of: " ", with: "+")
-//        ViewController().loadFromApi(name: name)
-//        //print("new text: \(text)")
-//        //print("Predictions: \(s)")
-//
-//    }
+  
     
 //    @IBAction func goBackToMainView(_ sender: Any) {
+//        if sender.source is ViewControllerYOLO
 //        performSegue(withIdentifier: "backToMain", sender: self)
 //    }
     
