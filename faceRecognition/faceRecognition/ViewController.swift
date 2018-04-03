@@ -30,7 +30,9 @@ struct Description: Decodable {
 }
 
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDataSource,UITableViewDelegate {
+  
+    
     
     //var effect:UIVisualEffect!
     @IBOutlet weak var imageView: UIImageView!
@@ -38,15 +40,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //@IBOutlet weak var BlurredView: UIVisualEffectView!
     @IBOutlet weak var classifier: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
     //@IBOutlet weak var percentage: UILabel!
     @IBOutlet weak var info: UIButton!
     @IBOutlet weak var informationLabel: UILabel!
     var finalImage: UIImage!
+    var finalImages: [UIImage] = []
     var flag: Bool!
+    var nameList: [String] = []
+    var informationList: [String] = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         self.info.isHidden = true
         imageView.isHidden = true
         self.classifier.isHidden = true
@@ -60,12 +70,39 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         infoView.layer.cornerRadius = informationLabel.frame.height/2.8
         infoView.clipsToBounds = true
         imageView.image = finalImage
+        
         if (flag == true){
             self.callPrediction()
         }
         
+        
     }
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return finalImages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell( withIdentifier: "customCell", for: indexPath) as! CustomViewCell
+        cell.cellImage.image = finalImages[indexPath.row]
+        cell.cellLabel.text = nameList[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.informationLabel.text = informationList[indexPath.row]
+        animationOn()
+        
+    }
+    
+    
+    
+    
+    @IBAction func learnMoreButton(_ sender: Any) {
+        self.infoView.isHidden = false
+        self.informationLabel.text = "HEY"
+    }
     
     func loadFromApi(name:String){
         guard let apiUrl = URL(string: "https://kgsearch.googleapis.com/v1/entities:search?indent=true&limit=1&query=\(name)&types=Person&key=AIzaSyDGzQoD9N3a517IZP1vlzktUH1ASUnHOyo")
@@ -83,7 +120,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let decoder = JSONDecoder()
         let persons = try decoder.decode(Json.self, from: data)
             DispatchQueue.main.async {
-                self.informationLabel.text = persons.itemListElement.first!.result.detailedDescription.articleBody
+            self.informationList.append(persons.itemListElement.first!.result.detailedDescription.articleBody)
+                print(self.informationList)
+//                self.informationLabel.text = persons.itemListElement.first!.result.detailedDescription.articleBody
             }
             //print("All stuff are: \(persons.itemListElement.first!.result.detailedDescription.articleBody)")
             
@@ -218,6 +257,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
        
         let name = (nameString).replacingOccurrences(of: " ", with: "+")
         loadFromApi(name: name)
+        self.nameList.append(string)
+        print(nameList)
         self.classifier.isHidden = false
         self.classifier.text = string
         
@@ -225,7 +266,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func callPrediction(){
-        predictUsingVision(image: finalImage)
+        for image in finalImages {
+        predictUsingVision(image: image)
+        }
     }
     
     

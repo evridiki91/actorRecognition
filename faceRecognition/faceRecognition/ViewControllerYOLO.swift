@@ -31,8 +31,11 @@ class ViewControllerYOLO: UIViewController {
     var frameCapturingStartTime = CACurrentMediaTime()
     let semaphore = DispatchSemaphore(value: 2)
     var faces: [CGRect] = []
-    
+
     var imageToPass: UIImage!
+    var imagesToPass: [UIImage] = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +84,8 @@ class ViewControllerYOLO: UIViewController {
         if (segue.identifier == "backToMain"){
             let destination = segue.destination as! ViewController
             print("Back to Main")
-            destination.finalImage = self.imageToPass
+            //destination.finalImage = self.imageToPass
+            destination.finalImages = self.imagesToPass
             destination.flag = true
         }
     }
@@ -98,15 +102,17 @@ class ViewControllerYOLO: UIViewController {
                 
                 let croppedCGImage:CGImage = (image.cgImage?.cropping(to: face))!
                 let croppedImage = UIImage(cgImage: croppedCGImage,scale: image.scale, orientation: image.imageOrientation)
-               self.imageToPass = croppedImage
+                self.imagesToPass.append(croppedImage)
+                //self.imageToPass = croppedImage
                 
-               performSegue(withIdentifier: "backToMain", sender: self)
+               
                 
 //                UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
 //                print("saved")
 //                print(faces.count)
                 
             }
+            performSegue(withIdentifier: "backToMain", sender: self)
         }
         
     }

@@ -22,6 +22,8 @@
 		79D162AC206FDCF00065B9AE /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162A9206FDCF00065B9AE /* BoundingBox.swift */; };
 		79D162AE206FE0450065B9AE /* ViewControllerYOLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162AD206FE0450065B9AE /* ViewControllerYOLO.swift */; };
 		79D162B02072A6660065B9AE /* ViewControllerStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162AF2072A6660065B9AE /* ViewControllerStart.swift */; };
+		79D162B2207301110065B9AE /* dog416.png in Resources */ = {isa = PBXBuildFile; fileRef = 79D162B1207301100065B9AE /* dog416.png */; };
+		79D162B420733FCB0065B9AE /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162B320733FCB0065B9AE /* CustomViewCell.swift */; };
 		79DF4C8A20470E8C00DE1934 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DF4C8920470E8C00DE1934 /* Actor.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		79D162A9206FDCF00065B9AE /* BoundingBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
 		79D162AD206FE0450065B9AE /* ViewControllerYOLO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerYOLO.swift; sourceTree = "<group>"; };
 		79D162AF2072A6660065B9AE /* ViewControllerStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerStart.swift; sourceTree = "<group>"; };
+		79D162B1207301100065B9AE /* dog416.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dog416.png; path = "../../../../Documents/YOLO-CoreML/Common/dog416.png"; sourceTree = "<group>"; };
+		79D162B320733FCB0065B9AE /* CustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
 		79DF4C8920470E8C00DE1934 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,7 @@
 				790322842015166500A801E9 /* ViewController.swift */,
 				79D162AD206FE0450065B9AE /* ViewControllerYOLO.swift */,
 				790322862015166500A801E9 /* Main.storyboard */,
+				79D162B1207301100065B9AE /* dog416.png */,
 				794524EB2035017800E9E7B1 /* Launch Screen.storyboard */,
 				790322892015166500A801E9 /* Assets.xcassets */,
 				7903228B2015166500A801E9 /* LaunchScreen.storyboard */,
@@ -93,6 +98,7 @@
 				7926696320325A95007941B9 /* model_ft.mlmodel */,
 				79D1629F206FD7710065B9AE /* YOLO.swift */,
 				79D162AF2072A6660065B9AE /* ViewControllerStart.swift */,
+				79D162B320733FCB0065B9AE /* CustomViewCell.swift */,
 			);
 			path = faceRecognition;
 			sourceTree = "<group>";
@@ -156,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79D162B2207301110065B9AE /* dog416.png in Resources */,
 				7903228D2015166500A801E9 /* LaunchScreen.storyboard in Resources */,
 				7903228A2015166500A801E9 /* Assets.xcassets in Resources */,
 				794524EC2035017800E9E7B1 /* Launch Screen.storyboard in Resources */,
@@ -172,6 +179,7 @@
 			files = (
 				79D162AE206FE0450065B9AE /* ViewControllerYOLO.swift in Sources */,
 				7926696420325A95007941B9 /* model_ft.mlmodel in Sources */,
+				79D162B420733FCB0065B9AE /* CustomViewCell.swift in Sources */,
 				79D162A3206FD7720065B9AE /* YOLO.swift in Sources */,
 				790322852015166500A801E9 /* ViewController.swift in Sources */,
 				79D162AC206FDCF00065B9AE /* BoundingBox.swift in Sources */,
