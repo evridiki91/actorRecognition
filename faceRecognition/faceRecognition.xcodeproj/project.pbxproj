@@ -15,6 +15,7 @@
 		7926696420325A95007941B9 /* model_ft.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7926696320325A95007941B9 /* model_ft.mlmodel */; };
 		794524EC2035017800E9E7B1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794524EB2035017800E9E7B1 /* Launch Screen.storyboard */; };
 		796A388B2022BB9700C68F41 /* VGG16Face.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */; };
+		7992DFC820748C64001838DC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DFC720748C64001838DC /* PageViewController.swift */; };
 		79D162A3206FD7720065B9AE /* YOLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D1629F206FD7710065B9AE /* YOLO.swift */; };
 		79D162A6206FDB1A0065B9AE /* yolo_face.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 79D162A5206FDB190065B9AE /* yolo_face.mlmodel */; };
 		79D162AA206FDCF00065B9AE /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D162A7206FDCEF0065B9AE /* VideoCapture.swift */; };
@@ -38,6 +39,7 @@
 		7926696320325A95007941B9 /* model_ft.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = model_ft.mlmodel; path = ../../../coremlConversion/model_ft.mlmodel; sourceTree = "<group>"; };
 		794524EB2035017800E9E7B1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		796A388A2022BB9700C68F41 /* VGG16Face.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = VGG16Face.mlmodel; path = ../../../../Downloads/vgg_face_caffe/VGG16Face.mlmodel; sourceTree = "<group>"; };
+		7992DFC720748C64001838DC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		79D1629F206FD7710065B9AE /* YOLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YOLO.swift; sourceTree = "<group>"; };
 		79D162A5206FDB190065B9AE /* yolo_face.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = yolo_face.mlmodel; path = ../../../../Downloads/darkflow/yolo_face.mlmodel; sourceTree = "<group>"; };
 		79D162A7206FDCEF0065B9AE /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				79D1629F206FD7710065B9AE /* YOLO.swift */,
 				79D162AF2072A6660065B9AE /* ViewControllerStart.swift */,
 				79D162B320733FCB0065B9AE /* CustomViewCell.swift */,
+				7992DFC720748C64001838DC /* PageViewController.swift */,
 			);
 			path = faceRecognition;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79D162AE206FE0450065B9AE /* ViewControllerYOLO.swift in Sources */,
+				7992DFC820748C64001838DC /* PageViewController.swift in Sources */,
 				7926696420325A95007941B9 /* model_ft.mlmodel in Sources */,
 				79D162B420733FCB0065B9AE /* CustomViewCell.swift in Sources */,
 				79D162A3206FD7720065B9AE /* YOLO.swift in Sources */,

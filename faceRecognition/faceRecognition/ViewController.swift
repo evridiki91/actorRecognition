@@ -55,8 +55,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.isHidden = true
         tableView.layer.cornerRadius = tableView.frame.height/22
         self.info.isHidden = true
@@ -89,7 +89,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
          let cell = tableView.dequeueReusableCell( withIdentifier: "customCell", for: indexPath) as! CustomViewCell
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height/8
         cell.cellImage.image = finalImages[indexPath.row]
-        //cell.cellLabel.text = nameList[indexPath.row]
+        cell.cellLabel.text = nameList[indexPath.row]
         cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height/4
         return cell
     }
