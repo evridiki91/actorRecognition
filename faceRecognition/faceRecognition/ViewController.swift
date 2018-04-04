@@ -49,7 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var flag: Bool!
     var nameList: [String] = []
     var informationList: [String] = []
-    
+    var imageLibrary: UIImage!
     
     
     override func viewDidLoad() {
@@ -57,6 +57,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
 //        tableView.delegate = self
 //        tableView.dataSource = self
+        tableView.isHidden = true
+        tableView.layer.cornerRadius = tableView.frame.height/22
         self.info.isHidden = true
         imageView.isHidden = true
         self.classifier.isHidden = true
@@ -67,7 +69,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imageView.clipsToBounds = true
         
         infoView.layer.masksToBounds = false
-        infoView.layer.cornerRadius = informationLabel.frame.height/2.8
+        infoView.layer.cornerRadius = informationLabel.frame.height/8
         infoView.clipsToBounds = true
         imageView.image = finalImage
         
@@ -77,18 +79,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         
     }
-    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return finalImages.count
+       return finalImages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell( withIdentifier: "customCell", for: indexPath) as! CustomViewCell
+        cell.cellView.layer.cornerRadius = cell.cellView.frame.height/8
         cell.cellImage.image = finalImages[indexPath.row]
-        cell.cellLabel.text = nameList[indexPath.row]
+        //cell.cellLabel.text = nameList[indexPath.row]
+        cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height/4
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.informationLabel.text = informationList[indexPath.row]
@@ -120,14 +125,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let decoder = JSONDecoder()
         let persons = try decoder.decode(Json.self, from: data)
             DispatchQueue.main.async {
-            self.informationList.append(persons.itemListElement.first!.result.detailedDescription.articleBody)
+                 self.informationList.append(persons.itemListElement.first!.result.detailedDescription.articleBody)
+                
+                
+            
                 print(self.informationList)
-//                self.informationLabel.text = persons.itemListElement.first!.result.detailedDescription.articleBody
+              //  self.informationLabel.text = persons.itemListElement.first!.result.detailedDescription.articleBody
             }
             //print("All stuff are: \(persons.itemListElement.first!.result.detailedDescription.articleBody)")
             
         } catch let err {
-        print("Err", err)
+        self.informationList.append("No information available for this person")
+        print("Error", err)
         }
         }.resume()
     }
@@ -167,8 +176,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //            self.BlurredView.effect = nil
         }) {(success:Bool) in
                 self.infoView.removeFromSuperview()
-                self.info.isHidden = false
-                self.classifier.isHidden = false
+                //self.info.isHidden = false
+                //self.classifier.isHidden = false
                // self.percentage.isHidden = false
         }
     }
@@ -210,10 +219,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        UIGraphicsEndImageContext()
         //let startTime = CFAbsoluteTimeGetCurrent()
         for _ in 1...1 {
+            //self.imageView.image = newImage
+           // self.imageView.isHidden = false
+           // self.classifier.isHidden = false
+           // self.info.isHidden = false
+//            self.imageLibrary = newImage
             self.predictUsingVision(image: newImage)
 
         }
     }
+    
+    
+    
     
     /*
      This uses the Vision framework to drive Core ML.
@@ -233,7 +250,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 // take the top 5 and map them to an array of (String, Double) tuples.
                 //print(observations)
                 self.show(result: (observations[0].identifier,Double(observations[0].confidence)))
-                self.info.isHidden = false
+                //self.info.isHidden = false
             }
         }
         
@@ -241,8 +258,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let handler = VNImageRequestHandler(cgImage: image.cgImage!)
         try? handler.perform([request])
-        imageView.isHidden = false
-        imageView.image = image
+        tableView.isHidden = false
+        //imageView.isHidden = false
+        //imageView.image = image
     }
     
     typealias Prediction = (String, Double)
@@ -250,17 +268,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func show(result: Prediction) {
         let string = result.0 + String(format: " %.2f", result.1*100) + "%"
         let nameString = result.0
-        
+        //self.classifier.text = string
         print("String \(string)")
         //print(classifier.text)
         //let parsed_string = string.replacingOccurrences(of: "\\s?\\([^)]*\\)", with: "", options: .regularExpression)
        
         let name = (nameString).replacingOccurrences(of: " ", with: "+")
         loadFromApi(name: name)
+        
         self.nameList.append(string)
         print(nameList)
-        self.classifier.isHidden = false
-        self.classifier.text = string
+        //self.classifier.isHidden = false
+        
         
 
     }

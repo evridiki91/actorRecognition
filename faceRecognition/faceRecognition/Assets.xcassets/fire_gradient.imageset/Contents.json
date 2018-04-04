@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-unsplash-50.png",
+      "filename" : "tumblr_n4zty4o8X41toojcto1_1280.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-unsplash-100.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-unsplash-500.png",
       "scale" : "3x"
     }
   ],

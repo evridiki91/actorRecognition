@@ -17,7 +17,8 @@ class ViewControllerYOLO: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var captureButton: UIButton!
-    
+    @IBOutlet weak var pause: UIButton!
+    @IBOutlet weak var exit: UIButton!
     let yolo = YOLO()
     
     var videoCapture: VideoCapture!
@@ -35,11 +36,11 @@ class ViewControllerYOLO: UIViewController {
     var imageToPass: UIImage!
     var imagesToPass: [UIImage] = []
     
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        captureButton.isHidden = true
         //    timeLabel.text = ""
         
         setUpBoundingBoxes()
@@ -90,11 +91,23 @@ class ViewControllerYOLO: UIViewController {
         }
     }
     
+    func alertMessage(){
+        let alert = UIAlertController(title: "No faces detected!", message: "Click play to try again", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Okay", style: .default) { (action) in
+        }
+        alert.addAction(action1)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
     
     //Button for capturing image
     @IBAction func captureImage(_ sender: Any) {
         print("captured")
-        
+        if(faces.isEmpty){
+            alertMessage()
+            print("No faces detected")
+        }
         if let image = UIImage(pixelBuffer: self.imageToDetect!) {
             
             // Add the view to the view hierarchy so that it shows up on screen
@@ -163,9 +176,15 @@ class ViewControllerYOLO: UIViewController {
     
     @IBAction func stopCamera(_ sender: Any) {
         if self.videoCapture.captureSession.isRunning {
+           pause.setImage(UIImage(named: "play.png"), for: .normal)
+            captureButton.isHidden = false
+            
             self.videoCapture.stop()
+            
         }
         else{
+            captureButton.isHidden = true
+            pause.setImage(UIImage(named: "pause.png"), for: .normal)
             self.videoCapture.start()
         }
     }
@@ -255,6 +274,7 @@ class ViewControllerYOLO: UIViewController {
                 if(!self.videoCapture.captureSession.isRunning){
                     self.faces.append(rectImage)
                     print("faces")
+                    
                     print(faces) //testing
                     
                 }
